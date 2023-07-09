@@ -1,0 +1,42 @@
+@use '../../sassStyles/breakpoints' as *;
+@use '../../sassStyles/flexComponent' as *;
+@use '../../sassStyles/functions' as f;
+
+
+.laurels {
+
+  &__awards {
+    @include flex(fs, c);
+    flex-wrap: wrap;
+
+    margin-top: 3rem;
+  }
+
+  &__awards-card {
+    flex: 1;
+    @include flex(fs, fs);
+    min-width: f.rem(230);
+
+    margin: 1rem;
+
+    @include bUp(xl) {
+      min-width: f.rem(390);
+    }
+
+    @include bDown(xs) {
+      min-width: 100%;
+      margin: 1rem 0;
+    }
+
+    & img {
+      width: 50px;
+      height: 50px;
+    }
+
+    &_content {
+      display: flex;
+      flex-direction: column;
+      margin-left: 1rem;
+    }
+  }
+}

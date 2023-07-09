@@ -1,0 +1,39 @@
+@use '../../sassStyles/breakpoints' as *;
+@use '../../sassStyles/functions' as f;
+
+.header {
+  background-color: var(--color-black);
+
+  &__h1 {
+    font-family: var(--font-base);
+    color: var(--color-golden);
+    font-weight: 700;
+    letter-spacing: 0.04rem;
+    text-transform: capitalize;
+    line-height: f.rem(117);
+    font-size: f.rem(90);
+
+    @include bUp(xl) {
+      font-size: f.rem(180);
+      line-height: f.rem(210);
+    }
+
+    @include bDown(lg) {
+      font-size: f.rem(90);
+    }
+
+    @include bDown(sm) {
+      font-size: f.rem(70);
+      line-height: f.rem(87);
+    }
+
+    @include bDown(xs) {
+      font-size: f.rem(50);
+      line-height: f.rem(70);
+    }
+  }
+
+  &__img img {
+    width: 80%;
+  }
+}

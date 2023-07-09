@@ -1,0 +1,12 @@
+$content-items: (
+  "c": center,
+  "sb": space-between,
+  "fs": flex-start,
+  "fe": flex-end,
+);
+
+@mixin flex($var1, $var2) {
+  display: flex;
+  justify-content: map-get($content-items, $var1);
+  align-items: map-get($content-items, $var2);
+}

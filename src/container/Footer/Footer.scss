@@ -1,0 +1,91 @@
+@use '../../sassStyles/breakpoints' as *;
+@use '../../sassStyles/flexComponent' as *;
+@use '../../sassStyles/functions' as f;
+
+.footer {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+
+  @include flex(fs, c);
+  flex-direction: column;
+
+  background: var(--color-black);
+  padding-top: 0;
+
+  @include bDown(sm) {
+    padding: 0 0 2rem 0;
+  }
+
+  &__links {
+    width: 100%;
+    @include flex(sb, fs);
+
+    margin-top: 5rem;
+    padding: 0 2rem;
+
+    @include bDown(lg) {
+      align-items: center;
+      flex-direction: column;
+      padding: 0;
+    }
+
+    &_contact,
+    &_logo,
+    &_work {
+      flex: 1;
+      margin: 1rem;
+      text-align: center;
+
+      @include bDown(lg) {
+        margin: 2rem 0;
+        width: 100%;
+      }
+    }
+
+    @include bDown(xs) {
+      &_logo img:first-child {
+        width: 80%;
+      }
+    }
+
+    &_work p:nth-child(2n + 1) {
+      margin-bottom: 1rem;
+    }
+
+    &_icons {
+      margin-top: 0.5rem;
+
+      svg {
+        color: var(--color-white);
+        margin: 0.5rem;
+        font-size: f.rem(24);
+        cursor: pointer;
+
+        &:hover {
+          color: var(--color-golden);
+        }
+      }
+    }
+  }
+
+  &__headtext {
+    font-family: var(--font-base);
+    color: var(--color-white);
+    font-weight: 400;
+    letter-spacing: 0.04rem;
+    text-transform: capitalize;
+    font-size: f.rem(32);
+    line-height: f.rem(41.6);
+    margin-bottom: 1rem;
+
+    @include bUp(xl) {
+      font-size: f.rem(51);
+      line-height: f.rem(61.6);
+    }
+  }
+
+  &__copyright {
+    margin-top: 3rem;
+  }
+}

@@ -1,0 +1,127 @@
+@use '../../sassStyles/breakpoints' as *;
+@use '../../sassStyles/flexComponent' as *;
+@use '../../sassStyles/functions' as f;
+
+.navbar {
+  width: 100%;
+  @include flex(sb, c);
+  background: var(--color-black);
+
+  padding: 1rem 2rem;
+
+  @include bDown(sm) {
+    padding: 1rem;
+  }
+
+  &__logo {
+    @include flex(fs, c);
+
+    img {
+      width: 150px;
+
+      @include bUp(xl) {
+        width: 210px;
+      }
+
+      @include bDown(sm) {
+        width: 110px;
+      }
+    }
+  }
+
+  &__links {
+    flex: 1;
+    @include flex(c, c);
+    text-transform: capitalize;
+
+    list-style: none;
+
+    @include bDown(lg) {
+      display: none;
+    }
+
+    li {
+      margin: 0 1rem;
+      cursor: pointer;
+
+      &:hover {
+        color: var(--color-grey);
+      }
+    }
+
+  }
+
+  &__login {
+    @include flex(fe, c);
+
+    @include bDown(sm) {
+      display: none;
+    }
+
+    a {
+      margin: 0 1rem;
+      text-decoration: none;
+      transition: .5s ease;
+
+      &:hover {
+        border-bottom: 1px solid var(--color-golden);
+      }
+    }
+
+    div {
+      width: 1px;
+      height: 30px;
+      background: var(--color-grey);
+    }
+  }
+
+  &__smallscreen {
+    display: none;
+
+    @include bDown(lg) {
+      display: flex;
+    }
+
+    &_overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: var(--color-black);
+      transition: .5s ease;
+
+      flex-direction: column;
+      z-index: 5;
+
+      .overlay__close {
+        font-size: f.rem(27);
+        color: var(--color-golden);
+        cursor: pointer;
+
+        position: absolute;
+        top: f.rem(20);
+        right: f.rem(20);
+      }
+    }
+
+
+    &_links {
+      list-style: none;
+      text-transform: capitalize;
+
+      li {
+        margin: 2rem;
+        cursor: pointer;
+        color: var(--color-golden);
+        font-size: f.rem(32);
+        text-align: center;
+        font-family: var(--font-base);
+
+        &:hover {
+          color: var(--color-white);
+        }
+      }
+    }
+  }
+}

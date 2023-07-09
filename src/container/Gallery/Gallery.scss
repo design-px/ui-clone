@@ -1,0 +1,141 @@
+@use '../../sassStyles/breakpoints' as *;
+@use '../../sassStyles/flexComponent' as *;
+@use '../../sassStyles/functions' as f;
+
+.gallery {
+  flex-direction: row;
+
+  background: var(--color-black);
+  padding: 4rem 0 4rem 6rem;
+
+  @include bDown(lg) {
+    flex-direction: column;
+  }
+
+  @include bDown(md) {
+    padding: 4rem 0 4rem 4rem;
+  }
+
+  @include bDown(sm) {
+    padding: 4rem 0 4rem 2rem;
+  }
+
+  &__content {
+    flex: 1;
+    @include flex(c, fs);
+    flex-direction: column;
+
+    min-width: f.rem(500);
+    padding-right: 2rem;
+
+    @include bUp(xl) {
+      min-width: f.rem(1000);
+      padding-right: 4rem;
+    }
+
+    @include bDown(sm) {
+      min-width: 100%;
+    }
+
+    button {
+      margin-top: 1rem;
+
+      @include bUp(xl) {
+        margin-top: 2rem;
+      }
+    }
+  }
+
+  &__images {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    max-width: 50%;
+    position: relative;
+
+    @include bDown(lg) {
+      max-width: 100%;
+      margin: 5rem 0;
+    }
+
+
+    &_container {
+      display: flex;
+      flex-direction: row;
+      width: max-content;
+      overflow-x: scroll;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    &_container::-webkit-scrollbar {
+      display: none;
+    }
+
+    &_card {
+      position: relative;
+      min-width: 301px;
+      height: 447px;
+      margin-right: 2rem;
+
+      @include bUp(xl) {
+        min-width: 400px;
+        height: 547px;
+      }
+
+      @include bDown(sm) {
+        min-width: 240px;
+        height: 320px;
+      }
+
+      & img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 1;
+        transition: .5s ease;
+      }
+
+      &:hover img {
+        opacity: .35;
+      }
+
+      &:hover .gallery__images-icon {
+        opacity: 1;
+      }
+
+
+    }
+
+    &-icon {
+      position: absolute;
+      color: #fff;
+      font-size: 2rem;
+      opacity: 0;
+      transition: .5s ease;
+      cursor: pointer;
+    }
+
+    &_arrows {
+      width: 100%;
+      @include flex(sb, c);
+
+      padding: 0 1rem;
+      position: absolute;
+      bottom: 5%;
+    }
+
+  }
+
+  &__arrow-icon {
+    color: var(--color-golden);
+    font-size: 2rem;
+    cursor: pointer;
+    background: var(--color-black);
+    border-radius: 5px;
+
+    &:hover {
+      color: var(--color-white);
+    }
+  }
+}

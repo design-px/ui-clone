@@ -1,0 +1,170 @@
+@use './sassStyles/breakpoints' as *;
+@use './sassStyles/flexComponent' as *;
+@use './sassStyles/functions' as f;
+
+.section__padding {
+  padding: 4rem 6rem;
+
+  @include bDown(md) {
+    padding: 4rem;
+  }
+
+  @include bDown(sm) {
+    padding: 4rem 2rem;
+  }
+}
+
+.flex__center {
+  @include flex(c, c);
+}
+
+.app {
+
+  &__bg {
+    background: url('./assets/bg.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: repeat;
+    background-attachment: fixed;
+  }
+
+  &__wrapper {
+    @include flex(sb, c);
+
+    min-height: 100vh;
+
+    @include bDown(lg) {
+      flex-direction: column;
+    }
+
+    &_info {
+      flex: 1;
+      width: 100%;
+      @include flex(c, fs);
+      flex-direction: column;
+    }
+
+    &_img {
+      flex: 1;
+      width: 100%;
+      @include flex(c, c);
+
+      margin-left: 2rem;
+
+      @include bDown(lg) {
+        margin: 5rem 0 0 0;
+      }
+
+      img {
+        width: 80%;
+
+        @include bDown(lg) {
+          width: 100%;
+        }
+      }
+    }
+
+    &_img-reverse {
+      justify-content: flex-start;
+      margin-right: 2rem;
+
+      @include bDown(lg) {
+        margin: 0 0 5rem 0;
+      }
+    }
+  }
+}
+
+.custom__button {
+  background-color: var(--color-crimson);
+  color: var(--color-black);
+  font-family: var(--font-base);
+  font-weight: 700;
+  letter-spacing: 0.04rem;
+  line-height: f.rem(28);
+  font-size: f.rem(16);
+  padding: 0.5rem 1.5rem;
+  border-radius: 1px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  @include bUp(xl) {
+    font-size: f.rem(37);
+    line-height: f.rem(67);
+  }
+}
+
+.p__cormorant {
+  font-family: var(--font-base);
+  color: var(--color-white);
+  font-weight: 700;
+  letter-spacing: 0.04rem;
+  text-transform: capitalize;
+  line-height: f.rem(29.9);
+  font-size: f.rem(23);
+
+  @include bUp(xl) {
+    font-size: f.rem(37);
+    line-height: f.rem(67);
+  }
+
+  @include bDown(sm) {
+    font-size: f.rem(21);
+  }
+
+  @include bDown(xs) {
+    font-size: f.rem(19);
+  }
+
+}
+
+.p__opensans {
+  font-family: var(--font-alt);
+  color: var(--color-white);
+  font-weight: 400;
+  letter-spacing: 0.04rem;
+  text-transform: capitalize;
+  line-height: f.rem(28);
+  font-size: f.rem(16);
+
+  @include bUp(xl) {
+    font-size: f.rem(30);
+    line-height: f.rem(50);
+  }
+
+  @include bDown(sm) {
+    font-size: f.rem(14);
+  }
+
+  @include bDown(xs) {
+    font-size: f.rem(12);
+  }
+}
+
+.headtext__cormorant {
+  font-family: var(--font-base);
+  color: var(--color-golden);
+  font-size: f.rem(64);
+  line-height: f.rem(83.2);
+  letter-spacing: 0.04rem;
+  text-transform: capitalize;
+
+  @include bUp(xl) {
+    font-size: f.rem(150);
+    line-height: f.rem(210);
+  }
+
+  @include bDown(xs) {
+    font-size: f.rem(45);
+    line-height: f.rem(70);
+  }
+}
+
+.spoon__img {
+  width: 45px;
+
+  @include bUp(xl) {
+    width: 80px;
+  }
+}

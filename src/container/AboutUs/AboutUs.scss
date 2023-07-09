@@ -1,0 +1,75 @@
+@use '../../sassStyles/breakpoints' as *;
+@use '../../sassStyles/flexComponent' as *;
+@use '../../sassStyles/functions' as f;
+
+.aboutus {
+  position: relative;
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+
+    img {
+      width: 391px;
+      height: 415px;
+      z-index: 0;
+
+      @include bDown(sm) {
+        width: 80%;
+        height: 320px;
+      }
+    }
+  }
+
+  &__content {
+    width: 100%;
+    z-index: 2;
+
+    @include bDown(md) {
+      flex-direction: column;
+    }
+
+    &_about {
+      flex: 1;
+      @include flex(fe, fe);
+      flex-direction: column;
+
+      text-align: right;
+    }
+
+    &_knife {
+      margin: 2rem 4rem;
+
+      @include bDown(md) {
+        margin: 4rem 0;
+      }
+
+      img {
+        height: 910px;
+
+        @include bUp(xl) {
+          height: 1110px;
+        }
+      }
+    }
+
+    &_history {
+      flex: 1;
+      @include flex(fs, fs);
+      flex-direction: column;
+
+      text-align: left;
+    }
+
+    &_about p,
+    &_history p {
+      margin: 2rem 0;
+      color: var(--color-grey);
+
+      @include bUp(xl) {
+        margin: 4rem 0;
+      }
+    }
+  }
+
+}

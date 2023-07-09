@@ -1,0 +1,34 @@
+@use '../../sassStyles/breakpoints' as *;
+@use '../../sassStyles/flexComponent' as *;
+
+.app__menuitem {
+  width: 100%;
+  margin: 1rem 0;
+
+  display: flex;
+  flex-direction: column;
+
+  &-head {
+    @include flex(sb, c);
+  }
+
+  &-sub {
+    width: 100%;
+    margin-top: 0.2rem;
+  }
+
+  &-name {
+    flex: 1;
+  }
+
+  &-dash {
+    width: 90px;
+    height: 1px;
+    background: var(--color-golden);
+    margin: 0 1rem;
+  }
+
+  &-price {
+    @include flex(fe, fe);
+  }
+}

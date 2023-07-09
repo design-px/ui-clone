@@ -1,0 +1,60 @@
+@use '../../sassStyles/breakpoints' as *;
+@use '../../sassStyles/functions' as f;
+
+.newsletter {
+  padding: 2rem 4rem;
+  border: 1px solid var(--color-golden);
+  background: var(--color-black);
+
+  @include bDown(sm) {
+    padding: 2rem 0;
+    border: none;
+  }
+
+  &__heading {
+    text-align: center;
+
+    h1 {
+      @include bDown(xs) {
+        font-size: f.rem(32);
+        line-height: f.rem(50);
+      }
+    }
+  }
+
+  &__input {
+    flex-direction: row;
+    margin-top: 3rem;
+
+    @include bDown(lg) {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    & input {
+      width: f.rem(620);
+      border: 1px solid var(--color-golden);
+      border-radius: 5px;
+      font-size: 1rem;
+      font-family: var(--font-base);
+      color: var(--color-white);
+
+      margin-right: 2rem;
+      padding: 0.75rem 1rem;
+      background: var(--color-black);
+
+      @include bUp(xl) {
+        font-size: 2rem;
+      }
+
+      @include bDown(lg) {
+        margin: 0 0 2rem 0;
+        width: 100%;
+      }
+    }
+
+    & button {
+      width: max-content;
+    }
+  }
+}

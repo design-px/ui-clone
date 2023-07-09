@@ -1,0 +1,52 @@
+@use '../../sassStyles/breakpoints' as *;
+@use '../../sassStyles/flexComponent' as *;
+@use '../../sassStyles/functions' as f;
+
+.chef {
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    margin-top: 5rem;
+
+    &_quote {
+      @include flex(fs, fe);
+
+      img {
+        width: 47px;
+        height: 40px;
+        margin: 0 1rem 1rem 0;
+      }
+    }
+  }
+
+  &__sign {
+    width: 100%;
+    margin-top: 3rem;
+
+    & p:first-child {
+      font-family: var(--font-base);
+      font-weight: 400;
+      font-size: f.rem(32);
+      line-height: f.rem(41.6);
+      letter-spacing: 0.04rem;
+      text-transform: capitalize;
+      color: var(--color-golden);
+    }
+
+    & img {
+      width: 250px;
+      margin-top: 3rem;
+
+      @include bUp(xl) {
+        width: 370px;
+      }
+
+      @include bDown(xs) {
+        width: 80%;
+      }
+    }
+  }
+}

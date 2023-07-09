@@ -1,0 +1,84 @@
+@use '../../sassStyles/breakpoints' as *;
+@use '../../sassStyles/flexComponent' as *;
+@use '../../sassStyles/functions' as f;
+
+.specialMenu {
+
+  flex-direction: column;
+  background: var(--color-black);
+
+  &__title {
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  &__menu {
+    width: 100%;
+    margin: 2rem 0;
+
+    @include flex(c, fs);
+    flex-direction: row;
+
+    @include bDown(lg) {
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    &_wine,
+    &_cocktails {
+      flex: 1;
+      width: 100%;
+      flex-direction: column;
+    }
+
+    &_heading {
+      font-family: var(--font-base);
+      font-weight: 600;
+      font-size: f.rem(45);
+      line-height: f.rem(58.5);
+      letter-spacing: 0.04em;
+      color: var(--color-white);
+
+      @include bDown(sm) {
+        font-size: f.rem(35);
+        line-height: f.rem(48.5);
+      }
+    }
+
+    &_img {
+      width: 410px;
+      margin: 0 2rem;
+
+      @include bUp(xl) {
+        width: 650px;
+      }
+
+      @include bDown(sm) {
+        width: 100%;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+
+        @include bUp(xl) {
+          height: 920px;
+        }
+
+        @include bDown(lg) {
+          margin: 3rem 0;
+        }
+      }
+
+    }
+
+    &_items {
+      display: flex;
+      flex-direction: column;
+
+      margin: 2rem 0;
+      width: 100%;
+    }
+  }
+}
